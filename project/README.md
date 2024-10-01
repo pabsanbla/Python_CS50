@@ -4,10 +4,8 @@
 The program is responsible for automatically updating the Hogwarts student file. To do this, the modules `sys`, `re` and `csv` have been used, as well as a module called `students`, which contains the classes `Student` and `Hat`, which will be applied in the code. For the explanation, we will go step by step through the functions and then explain the general operation of the program after having deciphered its blocks:
 - `command_line_input(arg)`: This function receives `sys.argv` as an argument and continues with the program if `project.py add` or `project.py remove` is entered on the command line. In any other case, the program does not continue and exits. If the command is entered correctly, the function returns the value of the second argument, that is, `add` or `remove`.
 - `create_student(name)`: This function receives as an argument the name of the previously instantiated `Student` object and checks that the name entered is valid. The formats included are the following:
-```
 **First name last name**
 **First name initial middle name(.) last name** *The dot is optional*
-```
 If the name corresponds to any of the formats, a `Student` object is instantiated and `Hat.sorted(student)` is used to assign a value to the `house` attribute, and then return it. Otherwise, `None` is returned and a message is displayed that the name is not valid. It should be noted that the program is sensitive to font size, so names like `harry potter` are not valid.
 - `student_in_list(student)`: This function checks that the student it receives as an argument (*Student object*) is not in the database, returning `True` if positive and `False` if negative. It also generates the `.csv` file in case it has not been created yet, returning `False` in this case as well.
 - `add_to_list(student)`: This function adds the student received as argument (*Student Object*) in `file.csv`.
