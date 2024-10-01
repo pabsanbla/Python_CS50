@@ -6,6 +6,7 @@ The program is responsible for automatically updating the Hogwarts student file.
 - `create_student(name)`: This function receives as an argument the name of the previously instantiated `Student` object and checks that the name entered is valid. The formats included are the following:
 > **First name last name**
 > **First name initial middle name(.) last name** *The dot is optional*
+
 If the name corresponds to any of the formats, a `Student` object is instantiated and `Hat.sorted(student)` is used to assign a value to the `house` attribute, and then return it. Otherwise, `None` is returned and a message is displayed that the name is not valid. It should be noted that the program is sensitive to font size, so names like `harry potter` are not valid.
 - `student_in_list(student)`: This function checks that the student it receives as an argument (*Student object*) is not in the database, returning `True` if positive and `False` if negative. It also generates the `.csv` file in case it has not been created yet, returning `False` in this case as well.
 - `add_to_list(student)`: This function adds the student received as argument (*Student Object*) in `file.csv`.
