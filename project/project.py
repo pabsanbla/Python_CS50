@@ -42,14 +42,14 @@ def student_in_list(student):
         return False
     except FileNotFoundError:
         # create the file if did not exists
-        open("archive.csv", "w")
+        open("archive.csv", "w", newline="")
         return False
 
 
 # this function adds the student in the database (.csv)
 def add_to_list(student):
     dict_student = {"name": student.name, "house": student.house}
-    with open("archive.csv", "a") as file:
+    with open("archive.csv", "a", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=["name", "house"])
         # write the header in case we have a empty file
         file.seek(0, 2)
@@ -68,8 +68,9 @@ def eliminate_student(student):
     # modify the list
     modified_students = [row for row in students if row["name"] != student.name]
     # write the new list
-    with open("archive.csv", "w") as file:
-        writer = csv.writer(file)
+    with open("archive.csv", "w", newline="") as file:
+        writer = csv.DictWriter(file, fieldnames=["name", "house"])
+        writer.writeheader()
         writer.writerows(modified_students)
 
 
