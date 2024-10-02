@@ -63,10 +63,10 @@ def eliminate_student(student):
     students = []
     # copy in a list
     with open("archive.csv", "r") as file:
-        reader = csv.reader(file)
+        reader = csv.DictReader(file)
         students = [row for row in reader]
     # modify the list
-    modified_students = [row for row in students if row[0] != student.name]
+    modified_students = [row for row in students if row["name"] != student.name]
     # write the new list
     with open("archive.csv", "w") as file:
         writer = csv.writer(file)

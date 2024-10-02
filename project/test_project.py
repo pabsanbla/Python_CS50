@@ -26,16 +26,16 @@ def test_create():
     assert create_student("1433") == None
 
 
-# We suposss that the file is created
+# We suposse that the file is created in this test 
 def test_student_in_list():
     student = create_student("Harry Potter")
-    # bad
-    assert student_in_list(student) == False  # didn´t add it before
-
     # good
     add_to_list(student)  # add before
     assert student_in_list(student) == True
     eliminate_student(student)
+    # bad
+    assert student_in_list(student) == False  # eliminate before
+
 
 
 def test_command_line_input():
